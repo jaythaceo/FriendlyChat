@@ -44,5 +44,20 @@
  	this.messageInput.addEventListener('change', buttontogglingHandler);
 
  	// Events for image upload.
+ 	this.submitImageButton.addEventListener('click', function() {
+ 		this.mediaCapture.click();
+ 	}.bind(this));
+ 	this.mediaCapture.addEventListener('change', this.saveImageMessage.bind(this));
+
+ 	this.initFirebase();
  }
+
+ // Sets up shortcuts to Firebase features and initiate Firebase auth.
+
+
+
+
+
+
+
 
