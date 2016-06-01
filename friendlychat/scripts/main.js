@@ -34,6 +34,9 @@
  	this.signInSnackbar = document.getElementByID('must-signin-snackbar');
 
  	// Saves messages on form submit.
+ 	this.messageForm.addEventListener('submit', this.saveMessage.bind(this));
+ 	this.signOutButton.addEventListener('click', this.signOut.bind(this));
+ 	this.sigInButton.addEventListener('click', this.signIn.bind(this));
 
  }
 
