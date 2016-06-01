@@ -84,6 +84,52 @@ FriendlyChat.prototype.setImageUrl = function(imageUri, imgElement) {
 
 };
 
+// Saves a new message containing an image URI in Firebase .
+// this first saves the image in Firebase storage.
+FriendlyChat.prototype.saveImageMessage = function (event) {
+	var file = event.target.files[0];
+
+	// Clear the selection in the file picker input.
+	this.imageForm.reset();
+
+	// Check if the file is an image.
+	if (!file.type.match('image.*')) {
+		var data = {
+			message: 'You can only share images',
+			setTimeout: 2000
+		};
+		this.signInSnackbar.MaterialSnackbar.showSnackbar(data);
+		return;
+	}
+	// Check if the user is signed-in
+	if (this.checkSignedInWithMessage()) {
+
+		// TODO(DEVELOPER): Upload image to Firebase storage and add message.
+
+	}
+};
+
+// Signs-in Friendly Chat.
+FriendlyChat.prototype.signIn = function (googleUser) {
+	// TODO(DEVELOPER): Sign in Firebase with credential from the Google user.
+};
+
+// Signs-out of Friendly Chat.
+FriendlyChat.prototype.signOut = function () {
+	// TODO(DEVELOPER): Sign out of Firebase.
+};
+
+// Triggers when the auth state change for instance when the user signs-in or signs-out.
+FriendlyChat.prototype.onAuthStateChanged = function(user) {
+	// body...
+};
+
+
+
+
+
+
+
 
 
 
