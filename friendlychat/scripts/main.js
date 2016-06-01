@@ -55,7 +55,41 @@
  // Sets up shortcuts to Firebase features and initiate Firebase auth.
  FriendlyChat.prototype.initFirebase = function() {
  	// TODO(DEVELOPER): Initialize Firebase.
+
+
  };
+
+// Loads chat messages history and listens for upcoming ones.
+FriendlyChat.prototype.loadMessages = function() {
+	// TODO(DEVELOPER): Initialize Firebase.
+
+};
+
+// Saves new messages for firebase DB,
+FriendlyChat.prototype.saveMessage = function (e) {
+	e.preventDefault();
+	// Check that the user entered a message and signed in.
+	if (this.messageInput.value && this.checkSignedInWithMessage()) {
+
+		// TODO(DEVELPER): push new message to Firebase.
+
+	}
+};
+
+// Sets the URL of the given img element with the URL of the image stored in Firebase Storage.
+FriendlyChat.prototype.setImageUrl = function(imageUri, imgElement) {
+	imgElement.src = imageUri;
+
+	// TODO(DEVELOPER): If image is on Firebase Storage, fetch image URL and set img element's src
+
+};
+
+
+
+
+
+
+
 
 
 
