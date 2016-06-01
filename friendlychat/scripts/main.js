@@ -38,5 +38,11 @@
  	this.signOutButton.addEventListener('click', this.signOut.bind(this));
  	this.sigInButton.addEventListener('click', this.signIn.bind(this));
 
+ 	// Toggle for the button.
+ 	var buttontogglingHandler = this.toggleButton.bind(this);
+ 	this.messageInput.addEventListener('keyup', buttontogglingHandler);
+ 	this.messageInput.addEventListener('change', buttontogglingHandler);
+
+ 	// Events for image upload.
  }
 
