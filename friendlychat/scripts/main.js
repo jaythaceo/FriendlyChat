@@ -53,6 +53,11 @@
  }
 
  // Sets up shortcuts to Firebase features and initiate Firebase auth.
+ FriendlyChat.prototype.initFirebase = function() {
+ 	// TODO(DEVELOPER): Initialize Firebase.
+ };
+
+
 
 
 
