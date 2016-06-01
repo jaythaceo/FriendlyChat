@@ -55,14 +55,11 @@
  // Sets up shortcuts to Firebase features and initiate Firebase auth.
  FriendlyChat.prototype.initFirebase = function() {
  	// TODO(DEVELOPER): Initialize Firebase.
-
-
  };
 
 // Loads chat messages history and listens for upcoming ones.
 FriendlyChat.prototype.loadMessages = function() {
 	// TODO(DEVELOPER): Initialize Firebase.
-
 };
 
 // Saves new messages for firebase DB,
@@ -105,7 +102,6 @@ FriendlyChat.prototype.saveImageMessage = function (event) {
 	if (this.checkSignedInWithMessage()) {
 
 		// TODO(DEVELOPER): Upload image to Firebase storage and add message.
-
 	}
 };
 
@@ -121,8 +117,38 @@ FriendlyChat.prototype.signOut = function () {
 
 // Triggers when the auth state change for instance when the user signs-in or signs-out.
 FriendlyChat.prototype.onAuthStateChanged = function(user) {
-	// body...
+	if (user) { // User is signed in!
+		// Get profile pic and users name from the the Firebase user object.
+		var profilePicUrl = null;  // TODO(DEVELOPER): Get profile pic.
+		var userName = null;       // TODO(DEVLOPER): Get user's name.
+
+		// Set the user's profile pic and name.
+		this.userPic.style.backgroundImage = 'url(' + profilePicUrl + ')';
+		this.userName.textContent = userName;
+
+		// Show user's profile and sign-out button.
+		this.userName.removeAttribute('hidden');
+		this.userPic.removeAttribute('hidden');
+		this.userPic.removeAttribute('hidden');
+
+		// Hide sign-in button.
+		this.signInButton.setAttribute('hidden', 'true');
+
+		// We load currently existing chant message.
+		this.loadMessages();
+	} else { // User is signed out!
+		// Hide user's prifile and sign-out button.
+		this.userName.setAttribute('hidden', 'true');
+		this.userPic.setAttribute('hidden', 'true');
+		this.signOutButton.setAttribute('hidden', 'true');
+
+		// Show sign-in button.
+		this.signInButton.removeAttribute('hidden');
+	}
 };
+
+
+// Returns true if the user signs in. Otherwise false and displays a message.
 
 
 
