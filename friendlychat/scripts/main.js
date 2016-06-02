@@ -147,8 +147,26 @@ FriendlyChat.prototype.onAuthStateChanged = function(user) {
 	}
 };
 
-
 // Returns true if the user signs in. Otherwise false and displays a message.
+FriendlyChat.prototype.checkSignedInWithMessage = function(element) {
+	/* TODO(DEVELOPER): Check is user is signed-n Firebase. */
+
+	// Display a message to the user using a Toast.
+	var date = {
+		message: 'You must sign-in first',
+		timeout: 2000
+	};
+	this.signInSnackbar.MaterialSnackbar.showSnackbar(data);
+	return false;
+};
+
+// Resets the given MaterialTextField.
+FriendlyChat.resetMaterialTextField = function (element) {
+	element.value = '';
+	element.parentNode.MaterialTextField.boundUpdateClassesHandler();
+};
+
+// Template for messages.
 
 
 
