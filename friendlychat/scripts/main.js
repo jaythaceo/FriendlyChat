@@ -178,13 +178,40 @@ FriendlyChat.MESSAGE_TEMPLATE =
 FriendlyChat.LOADING_IMAGE_URL = 'https://www.google.com/images/spin-32.gif';
 
 // Displays a message in the UI.
-FriendlyChat.prototype.displayMessage = function(key, name, text, picURL, imafeURi) {
+FriendlyChat.prototype.displayMessage = function(key, name, text, picUrl, imafeUri) {
 	var div = document.getElementByID(key);
 	// If a element for that message does not exist yet we create it.
 	if (!div) {
-
+		var container = document.createElement('div');
+		container.innerHTML = FriendlyChat.MESSAGE_TEMPLATE;
+		div = container.firstChild;
+		div.setAttribute('id'. key);
+		this.messageList.appendChild(div);
 	}
+	if (picUrl) {
+		div.querySelector('.pic').style.backgroundImage = 'url(' + picUrl + ')';
+	}
+	div.querySelector('.name').textContent = name;
+	var messageElement = div.querySelector('.message');
+	if (text) { // If the message is text.
+		messageElement.textContent = text;
+		// Replace all line breaks with <br>.
+		messageElement.innerHTML = messageElement.innerHTML.replace(/\n/g, '<br>');
+	} else if (imafeUri) {// If the message is an image.
+		var image = document.createElement('img');
+		image.addEventListener('load', function(){
+			this.messageList.scollTop = this.messageList.scrollHeight;
+		}.bind(this));
+		this.setImageUrl(imageUri, image);
+		messageElement.innerHTML = '';
+		messageElement.appendChild(image);
+	 }
+	 // Show card fading-in.
+	 setTimeout(function() {div.classList.add('visible')}, 1);
+	 this.messageList.scrollTop = this.messageList.scrollHeight;
+	 this.messageInput.focus();
 };
+
 
 
 
