@@ -168,15 +168,23 @@ FriendlyChat.resetMaterialTextField = function (element) {
 
 // Template for messages.
 FriendlyChat.MESSAGE_TEMPLATE =
-'<div class="message-container">' +
- '<div class="spacing"><'
+	'<div class="message-container">' +
+		'<div class="spacing"><div class="pic"></div></div>' +
+  	'<div class="message"></div>' +
+  	'<div class="name"></div>' +
+  '</div>';
 
+// A loading image URL.
+FriendlyChat.LOADING_IMAGE_URL = 'https://www.google.com/images/spin-32.gif';
 
+// Displays a message in the UI.
+FriendlyChat.prototype.displayMessage = function(key, name, text, picURL, imafeURi) {
+	var div = document.getElementByID(key);
+	// If a element for that message does not exist yet we create it.
+	if (!div) {
 
-
-
-
-
+	}
+};
 
 
 
