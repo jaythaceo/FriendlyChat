@@ -212,6 +212,16 @@ FriendlyChat.prototype.displayMessage = function(key, name, text, picUrl, imafeU
 	 this.messageInput.focus();
 };
 
+// Enables or disables the submit button depending on the values of the input
+// fields.
+FriendlyChat.prototype.toggleButton = function() {
+	if (this.messageInput.value) {
+		this.submitButton.removeAttribute('disabled');
+	} else {
+		this.submitButton.setAttribute('disabled', 'true');
+	}
+};
+
 
 
 
