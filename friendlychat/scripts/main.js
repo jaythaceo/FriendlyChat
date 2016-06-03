@@ -167,7 +167,9 @@ FriendlyChat.resetMaterialTextField = function (element) {
 };
 
 // Template for messages.
-
+FriendlyChat.MESSAGE_TEMPLATE =
+'<div class="message-container">' +
+ '<div class="spacing"><'
 
 
 
