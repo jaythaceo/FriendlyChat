@@ -58,7 +58,7 @@
  	this.auth = firebase.auth();
  	this.database = firebase.database();
  	this.storage = firebase.storage();
- 	// Initiates Firebase aith and listen to auth atate changes.
+ 	// Initiates Firebase auth and listen to auth atate changes.
  	this.auth.onAuthStateChanged(this.onAuthStateChanged.bid(this));
  };
 
@@ -118,7 +118,8 @@ FriendlyChat.prototype.signIn = function (googleUser) {
 
 // Signs-out of Friendly Chat.
 FriendlyChat.prototype.signOut = function () {
-	// TODO(DEVELOPER): Sign out of Firebase.
+	// Sign out of Firebase.
+	this.auth.signOut();
 };
 
 // Triggers when the auth state change for instance when the user signs-in or signs-out.
