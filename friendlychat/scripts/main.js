@@ -127,8 +127,8 @@ FriendlyChat.prototype.signOut = function () {
 FriendlyChat.prototype.onAuthStateChanged = function(user) {
 	if (user) { // User is signed in!
 		// Get profile pic and users name from the the Firebase user object.
-		var profilePicUrl = null;  // TODO(DEVELOPER): Get profile pic.
-		var userName = null;       // TODO(DEVLOPER): Get user's name.
+		var profilePicUrl = user.photoURL;  // TODO(DEVELOPER): Get profile pic.
+		var userName = user.displayName;       // TODO(DEVLOPER): Get user's name.
 
 		// Set the user's profile pic and name.
 		this.userPic.style.backgroundImage = 'url(' + profilePicUrl + ')';
@@ -142,7 +142,7 @@ FriendlyChat.prototype.onAuthStateChanged = function(user) {
 		// Hide sign-in button.
 		this.signInButton.setAttribute('hidden', 'true');
 
-		// We load currently existing chant message.
+		// We load currently existing chat message.
 		this.loadMessages();
 	} else { // User is signed out!
 		// Hide user's prifile and sign-out button.
@@ -156,8 +156,11 @@ FriendlyChat.prototype.onAuthStateChanged = function(user) {
 };
 
 // Returns true if the user signs in. Otherwise false and displays a message.
-FriendlyChat.prototype.checkSignedInWithMessage = function(element) {
+FriendlyChat.prototype.checkSignedInWithMessage = function() {
 	/* TODO(DEVELOPER): Check is user is signed-n Firebase. */
+	if(this.auth.currentUser) {
+		return true;
+	}
 
 	// Display a message to the user using a Toast.
 	var date = {
